@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Posts</title>
+    <link rel="stylesheet" href="/static/Style/posts.css" />
+
+    <link rel="stylesheet" href="/static/Style/home.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <a href="#" class="logo">DARUL HIKMAH</a>
+      <div class="menuToggle"></div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li>
+            <a href="">read <b>▼</b></a>
+            <ul>
+              <li><a href="/getUserBlogs">blog</a></li>
+              <li><a href="/getUserInfographics">infographics</a></li>
+            </ul>
+          </li>
+          <li><a href="/getUserPosts">posts</a></li>
+          <li><a  href="/getUserResourcePublications">resources</a></li>
+          <li>
+            <a href="/getUserCourses">courses <b>▼</b></a>
+            <ul>
+              <li><a href="getUserKidCourses">for Women</a></li>
+              <li><a href="getUserWomenCourses">for kids</a></li>
+            </ul>
+          </li>
+          <li><a href="/aboutUs">about</a></li>
+          <li><a href="/contactUs">contact us</a></li>
+          <li>
+            <a href="/getuserPublications">publications<b>▼</b></a>
+            <ul>
+              <li><a href="/getUserEBookPublications">Ebooks</a></li>
+              <li><a href="/getUserAcademyPublications">by academy</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <script>
+      let menuToggle = document.querySelector(".menuToggle");
+      let header = document.querySelector("header");
+      menuToggle.onclick = function () {
+        header.classList.toggle("active");
+      };
+    </script>
+
+    <div class="band">
+      <% posts.forEach(post => { %>
+      <div class="item">
+        <a class="card">
+          <img
+            class="thumb"
+            src="data:image/png;base64, <%= post.image %>"
+            alt="Uploaded Image"
+          />
+          <article>
+            <h1><%= post.title %></h1>
+            <p><%= post.description %></p>
+            <!-- Add any other content or styling as needed -->
+          </article>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>
